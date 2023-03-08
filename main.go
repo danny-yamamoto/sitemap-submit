@@ -3,20 +3,23 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
 	"google.golang.org/api/option"
 	"google.golang.org/api/webmasters/v3"
 )
 
 func main() {
-	key := "credentials.json"
 	ctx := context.Background()
-	webmastersService, err := webmasters.NewService(ctx, option.WithCredentialsFile(key))
+	keyJson := os.Getenv("KEY_JSON")
+	webmastersService, err := webmasters.NewService(ctx, option.WithCredentialsJSON([]byte(keyJson)))
 	if err != nil {
 		fmt.Println("Failed to create Client.")
 	}
-	siteUrl := "sc-domain:trial-net.co.jp"
-	feedpath := "https://www.trial-net.co.jp/sitemap/sitemap-0.xml"
+	siteUrl := os.Getenv("SITE_URL")
+	fmt.Printf("siteUrl: %v\n", siteUrl)
+	feedpath := os.Getenv("FEEDPATH")
+	fmt.Printf("feedpath: %v\n", feedpath)
 	err = webmastersService.Sitemaps.Submit(siteUrl, feedpath).Do()
 	if err != nil {
 		fmt.Println("Failed to submit.")
