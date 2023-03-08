@@ -2,8 +2,6 @@ module github.com/danny-personal/sitemap-submit
 
 go 1.20
 
-replace github.com/danny-personal/sitemap-submit/internal/server => ../internal/server
-
 require google.golang.org/api v0.111.0
 
 require (
