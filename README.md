@@ -51,6 +51,13 @@ go: upgraded google.golang.org/protobuf v1.28.0 => v1.28.1
 vscode ➜ /workspaces/sitemap-submit (main) $
 ```
 
+environmet
+```
+vscode ➜ /workspaces/sitemap-submit (main) $ export SITE_URL="sc-domain:trial-net.co.jp"
+vscode ➜ /workspaces/sitemap-submit (main) $ export FEEDPATH="https://www.trial-net.co.jp/sitemap/sitemap-0.xml"
+vscode ➜ /workspaces/sitemap-submit (main) $ export KEY_JSON=`cat credentials.json`
+```
+
 [Client の作成方法](https://dev.classmethod.jp/articles/bigquery-api-go-client-try/)
 
 [Func NewService](https://pkg.go.dev/google.golang.org/api@v0.111.0/webmasters/v3#NewService)
