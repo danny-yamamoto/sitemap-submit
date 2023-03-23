@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	"net/http"
 	"os"
 
 	"google.golang.org/api/option"
 	"google.golang.org/api/webmasters/v3"
 )
 
-func main() {
+func SitemapSubmit(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	keyJson := os.Getenv("KEY_JSON")
 	webmastersService, err := webmasters.NewService(ctx, option.WithCredentialsJSON([]byte(keyJson)))
@@ -25,4 +26,10 @@ func main() {
 		fmt.Println("Failed to submit.")
 		fmt.Println(err)
 	}
+	fmt.Println("Updated.")
+}
+
+func main() {
+	http.HandleFunc("/", SitemapSubmit)
+	http.ListenAndServe(":8080", nil)
 }
