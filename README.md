@@ -54,10 +54,10 @@ vscode ➜ /workspaces/sitemap-submit (main) $
 ## Set environment variables
 - `credentials.json` は、Google Cloud Console で json を作成する。
 ```
-vscode ➜ /workspaces/sitemap-submit (main) $ export SITE_URL="sc-domain:trial-net.co.jp"
-vscode ➜ /workspaces/sitemap-submit (main) $ export FEEDPATH="https://www.trial-net.co.jp/sitemap/sitemap-0.xml"
-vscode ➜ /workspaces/sitemap-submit (main) $ export KEY_JSON=`cat credentials.json`
-vscode ➜ /workspaces/sitemap-submit (main) $ go run main.go 
+export SITE_URL="sc-domain:trial-net.co.jp"
+export FEEDPATH="https://www.trial-net.co.jp/sitemap/sitemap-0.xml"
+export KEY_JSON=`cat credentials.json`
+go run main.go 
 ```
 
 - 新しい Terminal から実行する。
